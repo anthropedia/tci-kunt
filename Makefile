@@ -4,5 +4,5 @@ help:
 	@echo "Make tasks for deployment. Checkout the makefile content."
 
 deploy:
-	ssh epidaurus "cd ~/tci-online && " ${git_update}
-	ssh epidaurus "cd ~/tci-compose && docker-compose -p tci restart online"
+	ssh epidaurus "cd ~/tci-kunt && " ${git_update}
+	ssh epidaurus "cd ~/tci-compose && docker-compose -p tci restart kunt"
