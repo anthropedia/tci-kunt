@@ -1,4 +1,4 @@
--e git+ssh://bitbucket.org/anthropedia/tci-database.git#egg=tci-database
+-e git+ssh://bitbucket.org/anthropedia/tci-minne.git#egg=tci-minne
 -e git+ssh://bitbucket.org/anthropedia/tci-data.git#egg=tci-data
 -e git+https://github.com/anthropedia/tci-i18n.git#egg=tci-i18n
 
