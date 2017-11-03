@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-from tcidatabase import db
+from tciminne import db
 
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__) + '/..')
 os.environ.setdefault('SETTINGS', PROJECT_PATH + '/settings.py')

@@ -26,6 +26,7 @@ def end():
     token = Token.objects.get(key=request.form.get('token'))
     answers = [int(a) for a in request.form.get('answers').split(',')]
     times = [int(t) for t in request.form.get('times').split(',')]
-    Score(token=token, answers=answers, times=times).save()
+    Score(token=token, answers=answers, times=times,
+          client=token.client).save()
     token.void()
     return render_template('end.html')
