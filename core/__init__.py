@@ -11,7 +11,7 @@ if 'unittest' in sys.argv[0]:
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__) + '/..')
 os.environ.setdefault('SETTINGS', f'{PROJECT_PATH}/{settings_file}.py')
 
-app = Flask('tci-kunt')
+app = Flask('tki-kund')
 app.config.from_envvar('SETTINGS')
 
 app.root_path = PROJECT_PATH
