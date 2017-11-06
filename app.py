@@ -1,6 +1,4 @@
 from core import app
-from core import views, templates  # noqa: F401
-
 
 # WSGI
 application = app
