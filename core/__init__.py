@@ -6,7 +6,7 @@ from tcidatabase import db
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__) + '/..')
 os.environ.setdefault('SETTINGS', PROJECT_PATH + '/settings.py')
 
-app = Flask('tci-kunt')
+app = Flask('tki-kund')
 app.config.from_envvar('SETTINGS')
 
 app.root_path = PROJECT_PATH
