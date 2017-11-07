@@ -1,4 +1,4 @@
 Flask==0.12
-
-#-e git+ssh://bitbucket.org/anthropedia/tci-minne.git#egg=tci-minne
+requests==2.18.4
 -e git+https://github.com/anthropedia/tci-i18n.git#egg=tci-i18n
+-e git+ssh://bitbucket.org/anthropedia/minne.git#egg=minne

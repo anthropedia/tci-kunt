@@ -1,8 +1,9 @@
 from functools import wraps
 
-from flask import render_template, request, redirect, url_for, g
+from flask import render_template, request, redirect, url_for
 from minne.models import Token, Score
-from tcidata import get_tci
+from core.utils import api
+
 
 from . import app
 
@@ -38,7 +39,7 @@ def error():
 def home(token):
     if not is_token_valid(token):
         return redirect(url_for('error'))
-    return render_template('intro.html')
+    return render_template('intro.html', token=token)
 
 
 @app.route('/<string:token>/run/')
@@ -49,8 +50,8 @@ def survey(token):
         token = Token.objects.get(key=token, usage_date=None)
     except Token.DoesNotExist:
         return render_template('error.html'), 401
-    tci = get_tci('tci-3-240')
-    questions = tci.get('questions')
+    response = api('get', '/questions/tci3240/')
+    questions = response.json()
     return render_template('survey.html', questions=questions, token=token)
 
 
