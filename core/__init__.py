@@ -2,7 +2,7 @@ import os
 import sys
 
 from flask import Flask
-from tciminne import db
+from minne import db
 
 settings_file = 'settings'
 if 'unittest' in sys.argv[0]:

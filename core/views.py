@@ -1,7 +1,7 @@
 from functools import wraps
 
 from flask import render_template, request, redirect, url_for, g
-from tciminne.models import Token, Score
+from minne.models import Token, Score
 from tcidata import get_tci
 
 from . import app

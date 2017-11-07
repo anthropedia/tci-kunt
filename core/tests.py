@@ -1,5 +1,5 @@
 from unittest import TestCase
-from tciminne.models import Client, Token, Score, drop_all
+from minne.models import Client, Token, Score, drop_all
 
 from core import app
 from core import views  # noqa: F401
