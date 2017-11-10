@@ -1,4 +1,3 @@
-@import url('https://assets.tci.anthropedia.org/css/layout.css');
 button {
   padding: .5em 1.2em;
   font-size: 1em;
@@ -21,6 +20,20 @@ button {
   min-height: 100px;
 }
 
+.answer {
+  display: inline-block;
+  margin: 0 auto .3em auto;
+  width: 35px;
+  height: 35px;
+  line-height: 2rem;
+  text-align: center;
+  background-color: lightblue;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+  color: white;
+}
+
 #legend {
   display: flex;
   padding-bottom: 2em;
@@ -28,22 +41,12 @@ button {
   margin-bottom: 2em;
 }
 #legend li {
-  display: block;
+  list-style: none;
   width: 20%;
-  min-height: 100px;
-  text-align: center;
-  padding: .5em 1em;
-  line-height: 1.4em;
-  font-size: .9em;
+  padding: 0 .5rem;
 }
 #legend li span {
   display: block;
-  text-align: center;
-  width: 35px;
-  height: 32px;
-  padding: 4px;
-  margin: 0 auto;
-  font-size: 1.1em;
 }
 
 #question h1 {
@@ -66,22 +69,12 @@ button {
   display: none;
 }
 
-#answers label,
-#legend li span {
-  text-align: center;
-  vertical-align: middle;
-  background-color: lightblue;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
-  color: white;
-  margin-bottom: .3em;
+#answers label {
 }
 #answers label {
-  display: inline-block;
-  padding: 5px 25px 6px 14px;
-  margin-right: 3px;
   transition: background-color .5s;
   cursor: pointer;
+  margin-left: .3rem;
 }
 #answers label:nth-of-type(1),
 #legend li:nth-of-type(1) span {

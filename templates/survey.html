@@ -2,20 +2,20 @@
 {% block main %}
 <section>
   <ul id=legend>
-    <li><span>1</span>Definitely False</li>
-    <li><span>2</span>Mostly or Probably False</li>
-    <li><span>3</span>Neither True nor False, or About the Same</li>
-    <li><span>4</span>Mostly or Probably True</li>
-    <li><span>5</span>Definitely True</li>
+    <li><span class=answer>1</span>Definitely False</li>
+    <li><span class=answer>2</span>Mostly or Probably False</li>
+    <li><span class=answer>3</span>Neither True nor False, or About the Same</li>
+    <li><span class=answer>4</span>Mostly or Probably True</li>
+    <li><span class=answer>5</span>Definitely True</li>
   </ul>
   <section id=question>
     <h1></h1>
     <form method=post id=answers>
-      <label for=answer-1 title="Definitely false"><input id=answer-1 type=radio name=answer value=1>1</label>
-      <label for=answer-2 title="Mostly or Probably False"><input id=answer-2 type=radio name=answer value=2>2</label>
-      <label for=answer-3 title="Neither true nor false, or about the same"><input id=answer-3 type=radio name=answer value=3>3</label>
-      <label for=answer-4 title="Mostly or Probably True"><input id=answer-4 type=radio name=answer value=4>4</label>
-      <label for=answer-5 title="Definitely True"><input id=answer-5 type=radio name=answer value=5>5</label>
+      <label class=answer for=answer-1 title="Definitely false"><input id=answer-1 type=radio name=answer value=1>1</label>
+      <label class=answer for=answer-2 title="Mostly or Probably False"><input id=answer-2 type=radio name=answer value=2>2</label>
+      <label class=answer for=answer-3 title="Neither true nor false, or about the same"><input id=answer-3 type=radio name=answer value=3>3</label>
+      <label class=answer for=answer-4 title="Mostly or Probably True"><input id=answer-4 type=radio name=answer value=4>4</label>
+      <label class=answer for=answer-5 title="Definitely True"><input id=answer-5 type=radio name=answer value=5>5</label>
     </form>
     <div id=counter></div>
   </section>
