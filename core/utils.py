@@ -10,7 +10,7 @@ def api(method, endpoint, data=None, *args, **kwargs):
         kwargs['headers'] = {}
     kwargs['headers'].setdefault('Content-Type', 'application/json')
     kwargs['headers'].setdefault('Authentication', 'Bearer {}'.format(
-        app.config['TCI_API_TOKEN']
+        app.config['TCIAPI_TOKEN']
     ))
     if data:
         kwargs['data'] = jsonify(data).data
