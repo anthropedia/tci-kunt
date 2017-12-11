@@ -1,22 +1,21 @@
 import os
+from pathlib import Path
 
 
+DEBUG = os.environ.get('DEBUG', False)
 PORT = int(os.environ.get('PORT', 5000))
+SECRET_KEY = os.environ.get('SECRET_KEY', os.urandom(16))
 
-DEBUG = True
-SECRET_KEY = ''
+DATABASE = {'host': os.environ.get('MONGODB_URI', 'mongodb://localhost:27017')}
 
-# MongoDB
-DATABASE = {
-  'db': '',
-  'username': '',
-  'password': '',
-  'host': 'localhost',
-  'port': 27017,
-}
+# Skip authentication. Useful for testing and offline.
+AUTH_DISABLED = os.environ.get('AUTH_DISABLED', False)
+
+TCIAPI_URL = os.environ.get('TCIAPI_URL', 'http://localhost:5001')
+TCI_API_TOKEN = os.environ.get('TCI_API_TOKEN')
+
+ROOT_PATH = Path(__file__).parent
 
 TRANSLATION_FILES = {
-    'en': '/path/to/my/transfile.en.csv',
-    'fr': '/path/to/my/transfile.fr.csv',
-    'sv': '/path/to/my/transfile.sv.csv',
+    'en': ROOT_PATH / 'trans.en.csv',
 }
