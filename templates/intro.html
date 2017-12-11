@@ -3,7 +3,7 @@
 {% block main %}
 <section>
   <h2>{{ trans('Welcome to the TCI') }}</h2>
-  <p>{{ trans('Answer questions from 1 to 5') }}</p>
+  <p>{{ trans('Instructions here') }}</p>
   <a class=button href={{ url_for('survey', token=token) }}>Start the test</a>
 </section>
 {% endblock %}

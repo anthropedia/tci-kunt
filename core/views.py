@@ -11,13 +11,12 @@ from . import app
 def token_required(func):
     @wraps
     def wrapper(*args, **kwargs):
-        # token = kwargs.get('token')
-        # import ipdb; ipdb.set_trace()
-        # try:
-        #     token_obj = Token.objects.get(key=token, usage_date=None)
-        #     g.language = token_obj.language
-        # except Token.DoesNotExist:
-        #     return redirect(url_for('error'))
+        token = kwargs.get('token')
+        try:
+            token_obj = Token.objects.get(key=token, usage_date=None)
+            g.language = token_obj.language
+        except Token.DoesNotExist:
+            return redirect(url_for('error'))
         return func(*args, **kwargs)
     return wrapper
 
