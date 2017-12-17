@@ -1,18 +1,18 @@
-import os
+from pathlib import Path
 import sys
 
 from flask import Flask
 from minne import db
 
-settings_file = 'settings'
+settings_file = 'settings.py'
 if 'unittest' in sys.argv[0]:
-    settings_file = 'settings.test'
+    settings_file = 'settings.test.py'
 
-PROJECT_PATH = os.path.abspath(os.path.dirname(__file__) + '/..')
-os.environ.setdefault('SETTINGS', f'{PROJECT_PATH}/{settings_file}.py')
+PROJECT_PATH = Path(__file__).parent.parent
 
 app = Flask('tki-kund')
-app.config.from_envvar('SETTINGS')
+app.config.from_pyfile(PROJECT_PATH / 'settings.default.py')
+app.config.from_pyfile(PROJECT_PATH / settings_file, silent=True)
 
 app.root_path = PROJECT_PATH
 app.secret_key = app.config['SECRET_KEY']
