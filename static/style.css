@@ -44,12 +44,13 @@ button {
   list-style: none;
   width: 20%;
   padding: 0 .5rem;
+  text-align: center;
 }
 #legend li span {
   display: block;
 }
 
-#question h1 {
+#question p {
   font-family: inherit;
   display: inline-block;
   width: calc(100% - 240px);

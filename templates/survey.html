@@ -9,7 +9,7 @@
     <li><span class=answer>5</span>Definitely True</li>
   </ul>
   <section id=question>
-    <h1></h1>
+    <p></p>
     <form method=post id=answers>
       <label class=answer for=answer-1 title="Definitely false"><input id=answer-1 type=radio name=answer value=1>1</label>
       <label class=answer for=answer-2 title="Mostly or Probably False"><input id=answer-2 type=radio name=answer value=2>2</label>
@@ -28,7 +28,7 @@
 <script>
   const questions = {{ questions|safe }}
   const container = document.querySelector('#question')
-  const titleTag = container.querySelector('h1')
+  const questionTag = container.querySelector('#question > p')
   const form = container.querySelector('form')
   const counterTag = container.querySelector('#counter')
   const clickDelay = 500
@@ -66,7 +66,7 @@
     }
     // reset counter and display
     startTime = (new Date()).getTime()
-    titleTag.textContent = questions[index]
+    questionTag.textContent = questions[index]
     form.reset()
     counterTag.textContent = `${index+1}/${questions.length}`
   }
