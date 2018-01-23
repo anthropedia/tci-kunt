@@ -1,6 +1,6 @@
 from functools import wraps
 
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, abort
 from minne.models import Token, Score
 from core.utils import api
 
@@ -38,6 +38,10 @@ def error():
 def home(token):
     if not is_token_valid(token):
         return redirect(url_for('error'))
+    response = api('get', '/ping')
+    if not response.text == 'pong':
+        abort(401, 'The API is currently unavailable. '
+              'You should try running this test later.')
     return render_template('intro.html', token=token)
 
 
@@ -50,7 +54,10 @@ def survey(token):
     except Token.DoesNotExist:
         return render_template('error.html'), 401
     response = api('get', '/questions/tci3240/')
-    questions = response.json()
+    content = response.json()
+    if isinstance(content, dict) and content.get('error'):
+        abort(401, content.get('error'))
+    questions = content
     return render_template('survey.html', questions=questions, token=token)
 
 
