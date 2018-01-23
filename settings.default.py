@@ -16,6 +16,7 @@ TCIAPI_TOKEN = os.environ.get('TCIAPI_TOKEN')
 
 ROOT_PATH = Path(__file__).parent
 
+TRANSLATION_CACHE = os.environ.get('TRANSLATION_CACHE', True)
 TRANSLATION_FILES = {
     'en': ROOT_PATH / 'trans.en.csv',
 }

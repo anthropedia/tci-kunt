@@ -1,4 +1,3 @@
-from flask import g, request
 from tcii18n.template import flask_methods
 
 from . import app
@@ -9,4 +8,5 @@ def get_translations_file():
     return app.config.get('TRANSLATION_FILES').get(language)
 
 
-flask_methods(app, get_translations_file)
+flask_methods(app, get_translations_file,
+              cache=app.config.get('TRANSLATION_CACHE', True))
