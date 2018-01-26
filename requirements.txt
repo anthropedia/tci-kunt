@@ -1,4 +1,4 @@
 Flask==0.12
 requests==2.18.4
--e git+https://github.com/anthropedia/tci-i18n.git#egg=tci-i18n
+-e git+https://github.com/anthropedia/csv-i18n.git#egg=csv-i18n
 -e git+https://github.com/anthropedia/tki-minne.git#egg=minne

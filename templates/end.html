@@ -1,11 +1,7 @@
 {% extends 'layout.html' %}
 {% block main %}
 <section>
-  <h2>Thank you for completing the test.</h2>
-  <p>Your provider has received your results and will help you interpret them.
-    The professional interpretation of the TCI will help you better understand
-    the interactions between the different aspects of your personality.</p>
-  <p><a href=https://anthropedia.org/tci/>Learn more about the TCI</a> and
-    ways to <a href=https://anthropedia.org/learn-more/>improve your personality</a>.</p>
+  <h2>{{ _("Thank you for completing the test.") }}</h2>
+  {{ _("<p>Your provider has received your results and will help you interpret them. The professional interpretation of the TCI will help you better understand the interactions between the different aspects of your personality.</p><p><a href=https://anthropedia.org/tci/>Learn more about the TCI</a> and ways to <a href=https://anthropedia.org/learn-more/>improve your personality</a>.</p>")|safe }}
 </section>
 {% endblock %}

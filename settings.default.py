@@ -18,5 +18,6 @@ ROOT_PATH = Path(__file__).parent
 
 TRANSLATION_CACHE = os.environ.get('TRANSLATION_CACHE', True)
 TRANSLATION_FILES = {
-    'en': ROOT_PATH / 'trans.en.csv',
+    'en': ROOT_PATH / 'locales' / 'en.csv',
+    'sv': ROOT_PATH / 'locales' / 'sv.csv',
 }

@@ -1,32 +1,26 @@
 from functools import wraps
 
-from flask import render_template, request, redirect, url_for, abort
+from flask import render_template, request, redirect, url_for, abort, session
 from minne.models import Token, Score
 from core.utils import api
+
+from core.templates import trans
 
 
 from . import app
 
 
 def token_required(func):
-    @wraps
+    @wraps(func)
     def wrapper(*args, **kwargs):
         token = kwargs.get('token')
         try:
             token_obj = Token.objects.get(key=token, usage_date=None)
-            g.language = token_obj.language
+            session['language'] = token_obj.client.language
         except Token.DoesNotExist:
             return redirect(url_for('error'))
         return func(*args, **kwargs)
     return wrapper
-
-
-def is_token_valid(token):
-    try:
-        Token.objects.get(key=token, usage_date=None)
-        return True
-    except Token.DoesNotExist:
-        return False
 
 
 @app.route('/')
@@ -35,9 +29,8 @@ def error():
 
 
 @app.route('/<string:token>/')
+@token_required
 def home(token):
-    if not is_token_valid(token):
-        return redirect(url_for('error'))
     response = api('get', '/ping')
     if not response.text == 'pong':
         abort(401, 'The API is currently unavailable. '
@@ -46,9 +39,8 @@ def home(token):
 
 
 @app.route('/<string:token>/run/')
+@token_required
 def survey(token):
-    if not is_token_valid(token):
-        return redirect(url_for('error'))
     try:
         token = Token.objects.get(key=token, usage_date=None)
     except Token.DoesNotExist:
@@ -57,7 +49,7 @@ def survey(token):
     content = response.json()
     if isinstance(content, dict) and content.get('error'):
         abort(401, content.get('error'))
-    questions = content
+    questions = [trans(q) for q in content]
     return render_template('survey.html', questions=questions, token=token)
 
 

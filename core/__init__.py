@@ -4,6 +4,7 @@ import sys
 from flask import Flask
 from minne import db
 
+
 settings_file = 'settings.py'
 if 'unittest' in sys.argv[0]:
     settings_file = 'settings.test.py'

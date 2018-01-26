@@ -1,10 +1,10 @@
 {% extends 'layout.html' %}
 {% block main %}
 <section>
-  <h2>{{ trans("Oops, the test didn't load.") }}</h2>
-  <p>There are a couple of reasons this might happen.</p>
-  <p>Please double-check that you are using a new valid link and not an old test.</p>
-  <p>Otherwise, you might have an invalid token. If you are sure you have the good link,
-    please speak with the professional who assigned you the test to find a solution.</p>
+  <h2>{{ _("The test didn't load.") }}</h2>
+  <p>{{ _("There are a couple of reasons this might happen.") }}</p>
+  <p>{{ _("Please double-check that you are using a new valid link and not an old test.") }}</p>
+  <p>{{ _("Otherwise, you might have an invalid token. If you are sure you have the good link,
+    please speak with the professional who assigned you the test to find a solution.") }}</p>
 </section>
 {% endblock %}
